@@ -254,7 +254,7 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
  
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
-| Power BI Report (.pbix) | Multi-page interactive dashboard — national overview + 5 provincial pages | [`/reports/maji_ndogo_water_access.pbix`] |
+| Power BI Report (.pbix) | Multi-page interactive dashboard — national overview + 5 provincial pages | [`/reports/Maji Ndogo 2.pdf/`] |
 | Dashboard Screenshots | Visual previews of key report pages | [`/visuals/`] |
 | Data Dictionary | Field-level descriptions for all tables used in the model | [`/docs/data_dictionary.md`] |
 | README | Full project documentation (this file) | [`/README.md`] |
