@@ -4,69 +4,73 @@
 # This file contains NO narrative, NO insights, NO analysis.
 # It exists for indexing, automation, and portfolio cataloging.
 # ============================================================
-
 project:
-  name: "[Project Title]"
-  slug: "[project-title-lowercase-hyphenated]"   # Used for folder names, URLs
+  name: "Maji Ndogo Water Access Dashboard"
+  slug: "maji-ndogo-water-access"
   version: "1.0.0"
-  status: "completed"                             # Options: in-progress | completed | archived
-  last_updated: "YYYY-MM-DD"
+  status: "completed"
+  last_updated: "2026-04-29"
 
 author:
-  name: "[Your Full Name]"
-  role: "[Your Role or Title]"
-  github: "[github_username]"
-  linkedin: "[linkedin_profile_url]"
-  email: "[optional]"
+  name: "[Farinde Olasile Lateefat]"
+  role: "Data Analyst"
+  github: "[github_shileyzee22]"
+  linkedin: "[https://www.linkedin.com/in/olasile/]"
+  email: "[olasileopeyemi3079@gmail.com]"
 
 project_type:
-  primary: "[e.g., exploratory-analysis]"        # See taxonomy below
+  primary: "dashboard"
   secondary:
-    - "[e.g., dashboard]"
-    - "[e.g., data-pipeline]"
+    - "visualization"
+    - "reporting"
+    - "end-to-end"
 
-# PROJECT TYPE TAXONOMY (pick what applies):
-# exploratory-analysis | sql-analysis | dashboard | data-pipeline
-# predictive-model | data-cleaning | reporting | visualization
-# end-to-end | automation | other
-
-domain: "[e.g., finance / healthcare / marketing / operations / education / other]"
+domain: "public-health / infrastructure / humanitarian"
 
 tools:
   languages:
-    - "[e.g., Python 3.11]"
-    - "[e.g., SQL]"
-  libraries:
-    - "[e.g., pandas 2.0]"
-    - "[e.g., matplotlib 3.7]"
+    - "DAX"
+    - "Power Query (M)"
+  libraries: []
   platforms:
-    - "[e.g., GitHub]"
-    - "[e.g., Google Colab]"
+    - "Power BI Desktop"
+    - "GitHub"
   visualization:
-    - "[e.g., Power BI]"
-    - "[e.g., Tableau]"
-    - "[e.g., Plotly]"
+    - "Power BI"
 
 data:
   sources:
-    - name: "[Source name]"
-      type: "[csv / api / database / web-scrape / manual / public-dataset]"
-      access: "[public / private / simulated / anonymized]"
-  row_count_approx: "[e.g., 50000]"
+    - name: "Maji Ndogo National Water Survey"
+      type: "simulated-dataset"
+      access: "simulated"
+  row_count_approx: "25398"
   date_range:
-    start: "YYYY-MM-DD"
-    end: "YYYY-MM-DD"
+    start: "2023-01-01"
+    end: "2024-01-01"
 
 outputs:
-  - type: "[notebook / dashboard / report / csv / script / slides]"
-    path: "[relative/path/to/output]"
-    description: "[One-line description]"
+  - type: "dashboard"
+    path: "reports/maji_ndogo_water_access.pbix"
+    description: "Multi-page Power BI report — national overview + 5 provincial drill-through pages"
+  - type: "report"
+    path: "README.md"
+    description: "Full project documentation including schema, insights, and recommendations"
+  - type: "visuals"
+    path: "visuals/"
+    description: "Screenshots of all 6 dashboard pages for portfolio and README embedding"
 
 dependencies:
-  file: "[requirements.txt / environment.yml / packages.R / none]"
-  notes: "[Any setup instructions or environment caveats]"
+  file: "none"
+  notes: "Requires Power BI Desktop to open the .pbix file. No Python or R dependencies."
 
 tags:
-  - "[keyword-1]"
-  - "[keyword-2]"
-  - "[keyword-3]"
+  - "power-bi"
+  - "dax"
+  - "water-access"
+  - "public-health"
+  - "infrastructure"
+  - "humanitarian"
+  - "africa"
+  - "dashboard"
+  - "data-visualization"
+  - "budget-analysis"
