@@ -32,7 +32,7 @@
  
 **Context:** Maji Ndogo is a fictional nation facing a widespread water access crisis. A national survey was conducted to assess water source types, queue times, water quality, and population distribution across five provinces — Akatsi, Amanzi, Hawassa, Kilimani, and Sokoto.
  
-**Problem Statement:** National leadership (President Aziza Naledi) needed to understand the current state of water access across the country, how many people lacked basic water, and how much it would cost to resolve the crisis — at both national and provincial levels — in order to allocate budgets and mobilise ground teams.
+**Problem Statement:** National leadership (President Aziza Naledi) needed to understand the current state of water access across the country, how many people lacked basic water, and how much it would cost to resolve the crisis at both national and provincial levels  in order to allocate budgets and mobilise ground teams.
  
 **Approach:** Survey data was modelled in Power BI across multiple relational tables. DAX was used to classify water sources against UN standards, calculate adjusted improvement costs, and measure baseline versus post-project water access rates. National and provincial reports were built with user stories as the design blueprint.
  
@@ -213,10 +213,10 @@ This project followed a user-story-driven design approach. Rather than exploring
 ## 9. Key Insights
  
 **Insight 1: Only 34% of Maji Ndogo's 27.6M people currently have basic water access**
-The national baseline sits at just 34% — meaning roughly 18 million people are relying on unimproved or unsafe sources. This is the clearest indicator that the water crisis is not a localised issue but a national emergency requiring coordinated investment across all five provinces.
+The national baseline sits at just 34%  meaning roughly 18 million people are relying on unimproved or unsafe sources. This is the clearest indicator that the water crisis is not a localised issue but a national emergency requiring coordinated investment across all five provinces.
  
 **Insight 2: Kilimani and Sokoto require the largest budgets ($39M and $40M respectively)**
-Budget distribution is uneven across provinces. Kilimani leads in both population (6.58M) and planned improvement quantity (6,700 upgrades), while Sokoto's rural-heavy geography drives up costs through the 50% rural adjustment. Amanzi, by contrast, requires only $13M — the smallest share — due to lower population and fewer required upgrades.
+Budget distribution is uneven across provinces. Kilimani leads in both population (6.58M) and planned improvement quantity (6,700 upgrades), while Sokoto's rural-heavy geography drives up costs through the 50% rural adjustment. Amanzi, by contrast, requires only $13M, the smallest share due to lower population and fewer required upgrades.
  
 **Insight 3: RO filter installation and well drilling account for the majority of the $147M budget**
 Of the five major improvement types, Install RO filter (7,093 upgrades, ~$40M) and Drill well (3,379 upgrades, ~$38.9M) together represent over half the total spend. These two categories are the primary cost drivers and should be prioritised in procurement and contractor planning.
@@ -225,7 +225,7 @@ Of the five major improvement types, Install RO filter (7,093 upgrades, ~$40M) a
 Queue time analysis shows Saturday averages 246 minutes — versus 42–60 minutes on weekdays. This suggests shared tap infrastructure is severely over-capacity during weekends, likely due to combined work and school schedule pressures. Improvements to shared taps should account for peak-day demand, not average daily usage.
  
 **Insight 5: Water well contamination is split roughly evenly between chemical and biological sources**
-Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contaminated, and only 28.3% were clean. This means a majority of wells are currently unusable as basic water sources, and their improvement path (RO filter vs. UV+RO vs. repair) depends on contamination type — a nuance the improvement plan already accounts for.
+Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contaminated, and only 28.3% were clean. This means a majority of wells are currently unusable as basic water sources, and their improvement path (RO filter vs. UV+RO vs. repair) depends on contamination type a nuance the improvement plan already accounts for.
  
 ---
  
@@ -233,10 +233,10 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
  
 | Priority | Recommendation | Based On | Suggested Owner |
 |----------|---------------|----------|-----------------|
-| High | Prioritise Kilimani and Sokoto in the first budget release — these provinces represent the largest gap between current access and the 100% target, and have the highest improvement counts | Insight 2 — provincial budget breakdown | President Naledi / National Treasury |
-| High | Begin procurement planning for RO filter installations and well drilling contractors immediately — these two categories account for 54% of total spend and will have the longest lead times | Insight 3 — improvement type cost analysis | Infrastructure / Supply Chain team |
-| Medium | Redesign shared tap scheduling or expand capacity at high-queue sources — Saturday peaks suggest current infrastructure cannot support weekend demand | Insight 4 — Saturday queue time anomaly | Provincial leaders, Local operations teams |
-| Medium | Ensure contamination-type data is used to assign correct improvement type per well — not all contaminated wells require the same fix, and misassignment would waste budget | Insight 5 — well contamination results | Data team / Field survey verification |
+| High | Prioritise Kilimani and Sokoto in the first budget release these provinces represent the largest gap between current access and the 100% target, and have the highest improvement counts | Insight 2 — provincial budget breakdown | President Naledi / National Treasury |
+| High | Begin procurement planning for RO filter installations and well drilling contractors immediately these two categories account for 54% of total spend and will have the longest lead times | Insight 3 — improvement type cost analysis | Infrastructure / Supply Chain team |
+| Medium | Redesign shared tap scheduling or expand capacity at high-queue sources Saturday peaks suggest current infrastructure cannot support weekend demand | Insight 4 — Saturday queue time anomaly | Provincial leaders, Local operations teams |
+| Medium | Ensure contamination-type data is used to assign correct improvement type per well not all contaminated wells require the same fix, and misassignment would waste budget | Insight 5 — well contamination results | Data team / Field survey verification |
 | Low | After initial rollout, track `Basic_water_access %` monthly per province to measure progress against the 100% target and flag provinces that are falling behind | All insights — post-project monitoring | Dalila's data team / BI reporting function |
  
 ---
@@ -244,12 +244,12 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
 ## 11. Assumptions & Limitations
  
 ### Assumptions
-- Survey data is assumed to be complete and representative for all five provinces — no cross-validation against an external population register was performed.
-- The 50% rural cost uplift applied to all rural improvements is a planning estimate provided by project managers — actual procurement costs may vary.
-- Well contamination classifications (chemical vs. biological) are treated as accurate and final — no re-testing or margin of error has been incorporated.
+- Survey data is assumed to be complete and representative for all five provinces no cross-validation against an external population register was performed.
+- The 50% rural cost uplift applied to all rural improvements is a planning estimate provided by project managers actual procurement costs may vary.
+- Well contamination classifications (chemical vs. biological) are treated as accurate and final no re-testing or margin of error has been incorporated.
 - Queue times were averaged across multiple visits per source; this assumes visit timing was representative of typical usage patterns.
 ### Limitations
-- The dataset is a point-in-time snapshot — it does not capture seasonal variation in water availability, queue length, or contamination levels.
+- The dataset is a point-in-time snapshot it does not capture seasonal variation in water availability, queue length, or contamination levels.
 - The analysis cannot distinguish between wells that are contaminated due to natural geology versus human activity (e.g., agricultural runoff), which may affect remediation strategy.
 - Crime data was included in the dashboard but not deeply analysed in this version — the relationship between crime patterns and water collection behaviour (particularly for women and children) is noted but not quantified.
 - Provincial cost totals assume uniform per-unit costs within each improvement type — economies of scale or local procurement differences are not modelled.
