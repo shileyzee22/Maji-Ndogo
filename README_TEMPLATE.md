@@ -19,12 +19,13 @@
 5. [Data Workflow](#5-data-workflow)
 6. [Data Model & Schema](#6-data-model--schema)
 7. [Analysis & Metrics](#7-analysis--metrics)
-8. [Key Insights](#8-key-insights)
-9. [Recommendations](#9-recommendations)
-10. [Assumptions & Limitations](#10-assumptions--limitations)
-11. [Future Enhancements](#11-future-enhancements)
-12. [Deliverables](#12-deliverables)
-13. [Author](#13-author)
+8. [visualize](#7-analysis--metrics)
+9. [Key Insights](#9-key-insights)
+10. [Recommendations](#10-recommendations)
+11. [Assumptions & Limitations](#11-assumptions--limitations)
+12. [Future Enhancements](#12-future-enhancements)
+13. [Deliverables](#13-deliverables)
+14. [Author](#14-author)
 ---
  
 ## 1. Project Overview
@@ -195,8 +196,16 @@ This project followed a user-story-driven design approach. Rather than exploring
 - Bookmark-based interactivity to toggle between Province and Improvements budget views
 - Drill-through pages for each of the five provinces, filtered to local data only
 ---
- 
-## 8. Key Insights
+
+## 4. Visualize
+### Maji Ndogo Water Access report
+
+![Maji Ndogo Water Access Dashboard](image_url)
+
+*Above: Screenshot of the interactive Power BI dashboard.*
+---
+
+## 9. Key Insights
  
 **Insight 1: Only 34% of Maji Ndogo's 27.6M people currently have basic water access**
 The national baseline sits at just 34% — meaning roughly 18 million people are relying on unimproved or unsafe sources. This is the clearest indicator that the water crisis is not a localised issue but a national emergency requiring coordinated investment across all five provinces.
@@ -215,7 +224,7 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
  
 ---
  
-## 9. Recommendations
+## 10. Recommendations
  
 | Priority | Recommendation | Based On | Suggested Owner |
 |----------|---------------|----------|-----------------|
@@ -227,7 +236,7 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
  
 ---
  
-## 10. Assumptions & Limitations
+## 11. Assumptions & Limitations
  
 ### Assumptions
 - Survey data is assumed to be complete and representative for all five provinces — no cross-validation against an external population register was performed.
@@ -241,7 +250,7 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
 - Provincial cost totals assume uniform per-unit costs within each improvement type — economies of scale or local procurement differences are not modelled.
 ---
  
-## 11. Future Enhancements
+## 12. Future Enhancements
  
 - [ ] Add a progress-tracking page to the report that updates `Basic_water_access %` as improvements are marked complete in `project_progress`, replacing the static snapshot with a live project tracker
 - [ ] Incorporate seasonal water availability data to adjust queue time classifications — a source with < 30 min average queue may still be inadequate during dry season
@@ -250,7 +259,7 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
 - [ ] Publish the report to Power BI Service and configure row-level security (RLS) so each provincial leader can only see their own province's data
 ---
  
-## 12. Deliverables
+## 13. Deliverables
  
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
@@ -262,7 +271,7 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
  
 ---
  
-## 13. Author
+## 14. Author
  
 **[Farinde Olasile Lateefat]**
 Data Analyst
