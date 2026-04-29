@@ -197,8 +197,8 @@ This project followed a user-story-driven design approach. Rather than exploring
 - Drill-through pages for each of the five provinces, filtered to local data only
 ---
 
-## 4. Visualize
-### Maji Ndogo Water Access report
+## 4. Visuals
+### Maji Ndogo Water Access dashboard
 
 ![Maji Ndogo Water Access Report](https://github.com/shileyzee22/Maji-Ndogo/blob/09dd2a7b2c40d9c638147e6b20b08070cabc9a66/visuals/Nations%20Report.png)
 ![Maji Ndogo Water Access Water Source](https://github.com/shileyzee22/Maji-Ndogo/blob/09dd2a7b2c40d9c638147e6b20b08070cabc9a66/visuals/Water%20Source.png)
