@@ -263,10 +263,10 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
  
 ## 13. Author
  
-**[Your Name]**
+**[Farinde Olasile Lateefat]**
 Data Analyst
  
-- 🔗 [linkedin.com/in/olasile/]
+- 🔗 [https://www.linkedin.com/in/olasile/]
 - 💼 [[GitHub Profile URL](https://github.com/shileyzee22)]
 - 📧 [Email - olasileopeyemi3079@gmail.com]
 ---
