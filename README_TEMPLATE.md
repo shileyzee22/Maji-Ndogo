@@ -200,7 +200,12 @@ This project followed a user-story-driven design approach. Rather than exploring
 ## 4. Visualize
 ### Maji Ndogo Water Access report
 
-![Maji Ndogo Water Access Dashboard](image_url)
+![Maji Ndogo Water Access Report](https://github.com/shileyzee22/Maji-Ndogo/blob/09dd2a7b2c40d9c638147e6b20b08070cabc9a66/visuals/Nations%20Report.png)
+![Maji Ndogo Water Access Water Source](https://github.com/shileyzee22/Maji-Ndogo/blob/09dd2a7b2c40d9c638147e6b20b08070cabc9a66/visuals/Water%20Source.png)
+![Maji Ndogo Water Access Queue](https://github.com/shileyzee22/Maji-Ndogo/blob/09dd2a7b2c40d9c638147e6b20b08070cabc9a66/visuals/Queue.png)
+![Maji Ndogo Water Access Pollution](https://github.com/shileyzee22/Maji-Ndogo/blob/09dd2a7b2c40d9c638147e6b20b08070cabc9a66/visuals/Pollulation.png)
+![Maji Ndogo Water Access Crime Related](https://github.com/shileyzee22/Maji-Ndogo/blob/09dd2a7b2c40d9c638147e6b20b08070cabc9a66/visuals/Crime%20Related.png)
+![Maji Ndogo Water Access Sokoto Report](https://github.com/shileyzee22/Maji-Ndogo/blob/09dd2a7b2c40d9c638147e6b20b08070cabc9a66/visuals/Sokoto%20Report.png )
 
 *Above: Screenshot of the interactive Power BI dashboard.*
 ---
