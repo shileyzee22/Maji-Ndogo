@@ -1,22 +1,16 @@
-# [Project Title]
-> *One sentence. What did you analyze, build, or solve - and why does it matter?*
-
+# Maji Ndogo Water Access Dashboard
+> *Analysed water access across 27.6M people in five provinces of Maji Ndogo to identify infrastructure gaps, quantify improvement costs, and deliver a decision-ready Power BI report for national and provincial leadership.*
+ 
 ---
-
-## ⚙️ Project Type Flags
-> *Check what applies. This helps reviewers and collaborators understand the nature of the work at a glance. Delete this block before publishing.*
-
+ 
+## ⚙️ Project Type
+ 
 - [ ] Exploratory Data Analysis (EDA)
-- [ ] SQL Analysis / Querying
 - [ ] Dashboard / Data Visualization
-- [ ] Data Pipeline / ETL
-- [ ] Predictive Modelling / Machine Learning
-- [ ] Data Cleaning / Wrangling
-- [ ] End-to-End (multiple of the above)
-- [ ] Other: ___________
+- [ ] Data Cleaning 
 
 ---
-
+ 
 ## Table of Contents
 1. [Project Overview](#1-project-overview)
 2. [Objectives](#2-objectives)
@@ -24,507 +18,257 @@
 4. [Repository Structure](#4-repository-structure)
 5. [Data Workflow](#5-data-workflow)
 6. [Data Model & Schema](#6-data-model--schema)
-7. [ERD - Entity Relationship Diagram](#7-erd--entity-relationship-diagram) *(SQL projects)*
-8. [Analysis & Metrics](#8-analysis--metrics)
-9. [Key Insights](#9-key-insights)
-10. [Recommendations](#10-recommendations)
-11. [Assumptions & Limitations](#11-assumptions--limitations)
-12. [Future Enhancements](#12-future-enhancements)
-13. [Deliverables](#13-deliverables)
-14. [Author](#14-author)
-
+7. [Analysis & Metrics](#7-analysis--metrics)
+8. [Key Insights](#8-key-insights)
+9. [Recommendations](#9-recommendations)
+10. [Assumptions & Limitations](#10-assumptions--limitations)
+11. [Future Enhancements](#11-future-enhancements)
+12. [Deliverables](#12-deliverables)
+13. [Author](#13-author)
 ---
-
+ 
 ## 1. Project Overview
-
-<!--
-  Write 3–5 sentences in plain language.
-  Cover: context → problem → approach → outcome.
-  Read it out loud. If it sounds like a form - rewrite it.
-
-  WHAT GOOD LOOKS LIKE:
-  "A mid-size retail business was seeing inconsistent revenue across
-  its regional stores but couldn't identify the root cause. This project
-  explored 18 months of transaction data across five regions to determine
-  whether underperformance was driven by sales volume, pricing, or return
-  rates. The analysis revealed that one region's gap was almost entirely
-  explained by an unusually high return rate on a single product category -
-  a finding invisible in the company's top-level reporting."
-
-  WHAT TO AVOID:
-  "This project analyzes sales data to find trends and insights."
-  (Too vague. Could describe 10,000 projects. Describes none of them.)
--->
-
-**Context:** [The business, research, or personal situation that motivated this project.]
-
-**Problem Statement:** [The specific question or challenge you were addressing.]
-
-**Approach:** [In 1–2 sentences - how did you tackle it?]
-
-**Outcome:** [What did you produce or discover?]
-
+ 
+**Context:** Maji Ndogo is a fictional nation facing a widespread water access crisis. A national survey was conducted to assess water source types, queue times, water quality, and population distribution across five provinces — Akatsi, Amanzi, Hawassa, Kilimani, and Sokoto.
+ 
+**Problem Statement:** National leadership (President Aziza Naledi) needed to understand the current state of water access across the country, how many people lacked basic water, and how much it would cost to resolve the crisis — at both national and provincial levels — in order to allocate budgets and mobilise ground teams.
+ 
+**Approach:** Survey data was modelled in Power BI across multiple relational tables. DAX was used to classify water sources against UN standards, calculate adjusted improvement costs, and measure baseline versus post-project water access rates. National and provincial reports were built with user stories as the design blueprint.
+ 
+**Outcome:** A multi-page Power BI report was delivered — including a national overview page, five provincial drill-through pages, and an interactive budget breakdown — showing that 34% of the population currently has access to basic water, and that a $147M investment across 25,398 improvements could bring that to 100%.
+ 
 ---
-
+ 
 ## 2. Objectives
-
-<!--
-  Write objectives that are specific enough to succeed or fail.
-  Use action-oriented verbs: Identify, Determine, Quantify, Build, Evaluate.
-
-  WHAT GOOD LOOKS LIKE:
-  ✅ "Determine whether customer churn rate correlates with support ticket volume."
-  ✅ "Identify the top three revenue-driving product categories across all regions."
-  ✅ "Build a reproducible pipeline that ingests and cleans daily sales exports."
-
-  WHAT TO AVOID:
-  ❌ "Explore the data."
-  ❌ "Gain insights."
-  ❌ "Understand trends."
-  (These can't fail - which means they can't succeed either.)
--->
-
-- **Primary Objective:** [The main thing you set out to do]
-- **Secondary Objective 1:** [Supporting goal]
-- **Secondary Objective 2:** [Supporting goal]
-- **Secondary Objective 3:** [Remove if not applicable]
-
+ 
+- **Primary Objective:** Build an interactive Power BI dashboard that enables President Naledi and provincial leaders to understand water access status and make budget allocation decisions.
+- **Secondary Objective 1:** Classify all water sources in Maji Ndogo as "Basic Access" or "Below Basic Access" using UN water quality standards.
+- **Secondary Objective 2:** Calculate the total and province-level cost of all required infrastructure improvements, adjusting for rural vs. urban cost differences.
+- **Secondary Objective 3:** Design province-specific drill-through pages so local leaders can explore data relevant only to their region.
 > 💡 *Every analysis decision in this project traces back to one of these objectives.*
-
+ 
 ---
-
+ 
 ## 3. Project Scope & Tools
-
+ 
 ### Scope
-
-<!--
-  WHAT GOOD LOOKS LIKE:
-  In Scope: "Transaction-level data for Regions A–E, Jan 2023–Jun 2024.
-             Analysis covers revenue, return rates, and product category performance."
-  Out of Scope: "Customer demographics and marketing spend data were excluded -
-                 demographic data was incomplete for two regions, and marketing
-                 data sits in a separate system outside this engagement."
-
-  WHAT TO AVOID:
-  ❌ Leaving Out of Scope blank. This is the section that protects your credibility.
-     If you don't define the fence, reviewers assume you missed things.
--->
-
+ 
 | Dimension | Details |
 |-----------|---------|
-| **In Scope** | [What is included - data sources, time periods, segments] |
-| **Out of Scope** | [What you explicitly excluded - and a brief reason why] |
-| **Time Period** | [Date range of the data or the project itself] |
-| **Granularity** | [Unit of analysis - row-level, daily aggregates, per-user, etc.] |
-
+| **In Scope** | All five provinces (Akatsi, Amanzi, Hawassa, Kilimani, Sokoto); water source types, queue times, well pollution, population counts, infrastructure improvement costs |
+| **Out of Scope** | Historical trend data beyond the survey period; individual household-level identifiers; external economic or climate data |
+| **Time Period** | Based on a single national water survey dataset (point-in-time snapshot) |
+| **Granularity** | Water source level; aggregated to town, province, and national level for reporting |
+ 
 ### Tools & Technologies
-
-<!--
-  List only what you actually used on this project.
-  This is not your skills section - it's the project's technical context.
--->
-
+ 
 | Category | Tool(s) Used |
 |----------|-------------|
-| Data Storage | [e.g., PostgreSQL, CSV files, BigQuery, S3] |
-| Data Processing | [e.g., Python, R, SQL, Excel, dbt] |
-| Analysis | [e.g., pandas, dplyr, custom SQL queries] |
-| Visualization | [e.g., Matplotlib, Tableau, Power BI, Looker] |
-| Version Control | [e.g., Git / GitHub] |
-| Documentation | [e.g., Markdown, Notion] |
-| Other | [Any additional tools] |
-
+| Data Storage | Power BI data model (imported tables) |
+| Data Processing | Power Query (M), DAX calculated columns and measures |
+| Analysis | DAX (CALCULATE, FILTER, IF, CONTAINSSTRING, AVERAGE) |
+| Visualization | Power BI Desktop — bar charts, donut charts, maps, card visuals, tables, bookmarks |
+| Version Control | Git / GitHub |
+| Documentation | Markdown |
+ 
 ---
-
+ 
 ## 4. Repository Structure
-
+ 
 ```
-[project-root]/
+maji-ndogo-water-access/
 │
 ├── data/
-│   ├── raw/                  # Original, unmodified source data - never edited
-│   ├── processed/            # Cleaned and transformed data
-│   └── external/             # Reference data, lookup tables, third-party files
+│   ├── raw/                  # Original survey data files - never edited
+│   └── processed/            # Cleaned tables used in the Power BI model
 │
-├── notebooks/                # Jupyter, R Markdown, or Colab notebooks
+├── reports/                  # Published Power BI .pbix file
 │
-├── scripts/                  # Reusable .py, .R, or .sh processing files
+├── visuals/                  # Dashboard screenshots, page previews
 │
-├── queries/                  # SQL files (retain this folder for SQL-heavy projects)
-│   ├── exploratory/          # Ad-hoc or investigative queries
-│   ├── transformations/      # Cleaning and reshaping logic
-│   └── final/                # Production-ready or presentation queries
+├── docs/                     # Data dictionary, schema notes
 │
-├── reports/                  # Final outputs: PDFs, slide decks, Word docs
-│
-├── visuals/                  # Exported charts, dashboard screenshots, ERD diagrams
-│
-├── docs/                     # Data dictionaries, schema notes, reference material
-│
-├── project_metadata.yml      # Machine-readable metadata (optional)
 └── README.md                 # You are here
 ```
-
-> ⚠️ *Delete folders you didn't use. An empty folder is worse than no folder.*
-> SQL-heavy projects: keep `queries/`. Analysis-only projects: keep `notebooks/`. Both? Keep both.
-
+ 
 ---
-
+ 
 ## 5. Data Workflow
-
-<!--
-  Show how data moved through your project - from source to output.
-  Every transformation decision should be traceable here.
-
-  WHAT GOOD LOOKS LIKE:
-  1. Source: "Monthly CSV exports pulled from the internal POS system.
-              Five files, one per region, covering Jan 2023–Jun 2024."
-  2. Ingestion: "Loaded into Python using pandas. Files concatenated into
-                 a single dataframe (approx. 340,000 rows)."
-  3. Cleaning: "Removed 1.2% of rows with null transaction IDs.
-                Standardised date formats across regional files.
-                Resolved product category naming inconsistencies (3 variants → 1)."
-  4. Transformation: "Created a returns_rate field at product-category level.
-                      Aggregated to weekly and regional grain for trend analysis."
-  5. Analysis: "Descriptive statistics, regional comparison, return rate
-                segmentation by product category."
-  6. Output: "Summary report (PDF), annotated notebook, processed CSV."
-
-  WHAT TO AVOID:
-  ❌ "Data was cleaned and analysed." (No chain. No decisions. No trust.)
--->
-
+ 
 ```
-[Data Source(s)]
+Survey Data (multiple tables: water_source, visits, well_pollution,
+             location, project_progress, infrastructure_cost)
       ↓
-[Ingestion / Collection Method]
+Loaded into Power BI via Import mode
       ↓
-[Cleaning & Transformation]
+Relationships established between tables on shared keys (source_id, location_id)
       ↓
-[Analysis / Modelling / Querying]
+DAX calculated columns: Average_queue_time, Basic_water_access,
+                         Rural_adjusted_cost, Budgeted_improvement_cost,
+                         Aggregated_improvements
       ↓
-[Output / Visualisation / Reporting]
+DAX measures: Basic_water_access %, Improvement %, Total Budget (USD)
+      ↓
+Multi-page Power BI report: National overview + 5 provincial drill-through pages
 ```
-
-1. **Source:** [Where did the data come from? Format, size, access method.]
-2. **Ingestion:** [How was it brought in?]
-3. **Cleaning:** [What issues did you find and fix?]
-4. **Transformation:** [What new fields, aggregations, or structures did you create?]
-5. **Analysis:** [What methods - statistical, visual, query-based, model-based?]
-6. **Output:** [What form do the results take?]
-
+ 
+1. **Source:** Multi-table dataset from the Maji Ndogo national water survey — including water source records, visit logs with queue times, well pollution results, location data, improvement plans, and infrastructure cost estimates.
+2. **Ingestion:** Tables imported into Power BI Desktop and connected via a star-schema-style data model.
+3. **Cleaning:** Improvement categories were consolidated using DAX (`CONTAINSSTRING`) — e.g., all "Install N taps nearby" variants were aggregated into "Install public tap(s)*", and "Diagnose local infrastructure" was renamed to "Repair infrastructure" for clarity.
+4. **Transformation:** Key DAX columns created: `Average_queue_time` (per source, averaged across multiple visits); `Basic_water_access` (UN-standard classification per source); `Rural_adjusted_cost` (unit cost × 1.5 for rural sources); `Budgeted_improvement_cost` (looks up rural/urban cost per improvement type).
+5. **Analysis:** Descriptive aggregation by province, town, and rural/urban split; access rate calculation (people with basic water ÷ total population); budget breakdown by province and improvement type.
+6. **Output:** Interactive Power BI report — national summary page with KPI cards, provincial drill-through pages, bookmark-toggled budget tables, and a province slicer linked to a map visual.
 ---
-
+ 
 ## 6. Data Model & Schema
-
-<!--
-  Define your fields so that someone reading your analysis can follow along
-  without digging through your code.
-
-  WHAT GOOD LOOKS LIKE (one row example):
-  | transaction_id | string | Unique identifier per sales transaction | TXN-00482 |
-  | return_flag    | boolean | Whether the transaction included a return | TRUE |
-  | region_code    | string | Two-letter identifier for store region | "NE" |
-
-  WHAT TO AVOID:
-  ❌ Skipping this section because "the field names are self-explanatory."
-     They're not. Not to a reviewer. Not to you in six months.
-
-  📌 FOR SQL PROJECTS: If you have multiple tables, create one block per table.
-     Describe join keys and relationships here. Your ERD (Section 7) will
-     visualise what this section describes in text.
-
-  📌 FOR NON-SQL PROJECTS: Describe the shape of your dataset informally
-     if a formal schema doesn't apply. Even one paragraph is more helpful than nothing.
--->
-
-### Dataset / Table: `[name]`
-
+ 
+### Dataset / Table: `water_source`
+ 
 | Field Name | Data Type | Description | Example Value |
 |------------|-----------|-------------|---------------|
-| `[field_1]` | [string / int / date / float / boolean] | [What this field represents] | [Non-sensitive example] |
-| `[field_2]` | [string / int / date / float / boolean] | [What this field represents] | [Non-sensitive example] |
-| `[field_3]` | [string / int / date / float / boolean] | [What this field represents] | [Non-sensitive example] |
-
-> **Row count (approx.):** [X rows]
-> **Date range:** [Start] – [End]
-> **Key join / relationship:** [e.g., `orders.customer_id` → `customers.id`]
-
-*Add additional table blocks as needed for multi-table projects.*
-
+| `source_id` | string | Unique identifier for each water source | `SRC-00482` |
+| `type_of_water_source` | string | Category of water source | `shared_tap` |
+| `number_of_people_served` | int | Population relying on this source | `2,340` |
+| `Average_queue_time` | float (DAX) | Calculated average queue time across all visits to this source | `42.5` |
+| `Basic_water_access` | string (DAX) | UN-standard classification: Basic Access or Below Basic Access | `Basic Access` |
+ 
+### Dataset / Table: `visits`
+ 
+| Field Name | Data Type | Description | Example Value |
+|------------|-----------|-------------|---------------|
+| `source_id` | string | Foreign key linking to `water_source` | `SRC-00482` |
+| `time_in_queue` | int | Minutes spent queuing at this visit | `55` |
+| `visit_count` | int | Number of times this source was surveyed | `3` |
+ 
+### Dataset / Table: `well_pollution`
+ 
+| Field Name | Data Type | Description | Example Value |
+|------------|-----------|-------------|---------------|
+| `source_id` | string | Foreign key linking to `water_source` | `SRC-00210` |
+| `results` | string | Pollution test outcome | `Contaminated: Biological` |
+ 
+### Dataset / Table: `project_progress`
+ 
+| Field Name | Data Type | Description | Example Value |
+|------------|-----------|-------------|---------------|
+| `source_id` | string | Water source requiring improvement | `SRC-00482` |
+| `improvement` | string | Type of upgrade planned | `Install RO filter` |
+| `town` | string | Town where source is located | `Harare` |
+| `province` | string | Province of the source | `Kilimani` |
+| `Budgeted_improvement_cost` | float (DAX) | Calculated cost (rural-adjusted where applicable) | `5,625` |
+ 
+### Dataset / Table: `infrastructure_cost`
+ 
+| Field Name | Data Type | Description | Example Value |
+|------------|-----------|-------------|---------------|
+| `improvement` | string | Improvement type | `Drill well` |
+| `unit_cost_USD` | float | Base cost per improvement in USD | `8,500` |
+| `Rural_adjusted_cost` | float (DAX) | Cost × 1.5 for rural sources | `12,750` |
+ 
+> **Total improvements planned:** 25,398
+> **Total budgeted cost:** $146,737,375
+> **Key relationships:** `visits.source_id` → `water_source.source_id` | `well_pollution.source_id` → `water_source.source_id` | `project_progress.source_id` → `water_source.source_id`
+ 
 ---
-
-## 7. ERD - Entity Relationship Diagram
-### *(Primarily for SQL Projects - remove this section if not applicable)*
-
-<!--
-  An ERD shows how your tables connect to each other visually.
-  It is the fastest way for a reviewer to understand the data structure
-  of a SQL project without reading every query.
-
-  HOW TO INCLUDE YOUR ERD:
-  Option A - Image embed (most common):
-    Export your ERD from dbdiagram.io, DBeaver, Lucidchart, or similar.
-    Save to /visuals/erd.png and reference it below.
-
-  Option B - dbdiagram.io code block (version-controllable):
-    Paste your schema definition code directly in the fenced block below.
-    Anyone can paste it into dbdiagram.io to regenerate the visual.
-
-  Option C - Mermaid diagram (renders natively in GitHub):
-    Use the mermaid code block syntax below.
-    GitHub will render this as a diagram automatically.
-
-  PICK ONE. Don't use all three. Delete the options you don't use.
--->
-
-### Option A - Embedded Image
-![ERD Diagram](visuals/erd.png)
-*[Brief caption: e.g., "Three-table schema - orders, customers, and products joined on shared IDs."]*
-
----
-
-### Option B - dbdiagram.io Schema Definition
-```
-Table orders {
-  order_id    int     [pk]
-  customer_id int     [ref: > customers.customer_id]
-  product_id  int     [ref: > products.product_id]
-  order_date  date
-  amount      float
-}
-
-Table customers {
-  customer_id int  [pk]
-  region_code string
-  signup_date date
-}
-
-Table products {
-  product_id   int    [pk]
-  category     string
-  unit_price   float
-}
-```
-*Paste this into [dbdiagram.io](https://dbdiagram.io) to view the visual.*
-
----
-
-### Option C - Mermaid Diagram *(renders on GitHub)*
-```mermaid
-erDiagram
-    ORDERS {
-        int order_id PK
-        int customer_id FK
-        int product_id FK
-        date order_date
-        float amount
-    }
-    CUSTOMERS {
-        int customer_id PK
-        string region_code
-        date signup_date
-    }
-    PRODUCTS {
-        int product_id PK
-        string category
-        float unit_price
-    }
-    ORDERS ||--o{ CUSTOMERS : "placed by"
-    ORDERS ||--o{ PRODUCTS : "contains"
-```
-
----
-
-**Table Relationships Summary:**
-
-| Relationship | Join Key | Type |
-|-------------|----------|------|
-| `orders` → `customers` | `customer_id` | Many-to-One |
-| `orders` → `products` | `product_id` | Many-to-One |
-| [Add rows as needed] | | |
-
----
-
-## 8. Analysis & Metrics
-
-<!--
-  Explain what you measured and how - before you share what you found.
-
-  WHAT GOOD LOOKS LIKE:
-  Metric: "Customer Return Rate"
-  Definition: "Number of transactions flagged as returns divided by total
-               transactions, calculated at product-category and regional grain."
-  Why It Matters: "Return rate - not sales volume - was hypothesised to
-                  explain regional revenue gaps. This metric tests that hypothesis."
-
-  WHAT TO AVOID:
-  ❌ Defining a metric only in code: SUM(returns) / COUNT(transaction_id)
-     That's an implementation. Write the plain-language definition here.
-     Both belong in your project - the definition in the README,
-     the implementation in the code.
--->
-
+ 
+## 7. Analysis & Metrics
+ 
 ### Analytical Approach
-
-[Describe how you approached the analysis. Were you exploring patterns? Testing a hypothesis? Building and validating a pipeline? Be honest about your method - exploratory work is valid, just call it that.]
-
+ 
+This project followed a user-story-driven design approach. Rather than exploring the data freely, each visual was built to answer a specific question posed by the two primary users: President Aziza Naledi (national overview) and provincial leaders (localised decision-making). DAX calculations were developed to bridge gaps between raw survey data and the metrics needed to answer those questions.
+ 
 ### Key Metrics Defined
-
+ 
 | Metric | Plain-Language Definition | Why It Matters |
 |--------|--------------------------|----------------|
-| `[Metric 1]` | [What it measures, in one sentence] | [What decision or question it answers] |
-| `[Metric 2]` | [What it measures, in one sentence] | [What decision or question it answers] |
-| `[Metric 3]` | [What it measures, in one sentence] | [What decision or question it answers] |
-
+| `Basic_water_access %` | The percentage of the total population currently using a water source that meets UN basic access standards | Measures the baseline problem — only 34% of Maji Ndogo currently has basic water access |
+| `Improvement %` | The percentage point increase in basic water access once all planned upgrades are complete | Quantifies the impact of the $147M investment — the goal is to reach 100% |
+| `Budgeted_improvement_cost` | The estimated cost per water source improvement, adjusted by 50% for rural sources | Ensures budget estimates reflect the higher cost of remote, rural infrastructure work |
+| `Total Budget (USD)` | Sum of all budgeted improvement costs across all 25,398 planned upgrades | Gives President Naledi the single national number she needs for capital allocation |
+ 
 ### Methods Used
-
-- [e.g., Descriptive statistics - distribution, central tendency, outlier detection]
-- [e.g., Trend analysis across [time period]]
-- [e.g., Segmentation / group comparison by [dimension]]
-- [e.g., Correlation analysis between [variable A] and [variable B]]
-- [e.g., SQL window functions for [specific aggregation]]
-- [e.g., Custom aggregation or transformation logic in [tool]]
-
+ 
+- UN classification framework applied to categorise water sources (clean wells, shared taps with queue < 30 min, and home taps = Basic Access; rivers, broken taps, contaminated wells = Below Basic Access)
+- DAX `CALCULATE` + `FILTER` to compute per-source average queue times from multi-visit data
+- Conditional DAX logic (`IF`, `AND`, `CONTAINSSTRING`) for cost lookups and access classification
+- Aggregation to provincial and national grain for KPI cards and budget tables
+- Bookmark-based interactivity to toggle between Province and Improvements budget views
+- Drill-through pages for each of the five provinces, filtered to local data only
 ---
-
-## 9. Key Insights
-
-<!--
-  Findings + implications. Not just what happened - what it means.
-
-  WHAT GOOD LOOKS LIKE:
-  ✅ "Return rates, not sales volume, explain Region A's underperformance.
-      Region A's return rate on home goods was 34% - more than double the
-      company average. Revenue was not lost at the point of sale; it was
-      lost post-sale through refunds. This points to a fulfilment or
-      product quality issue specific to that region, not a demand problem."
-
-  WHAT TO AVOID:
-  ❌ "Region A had lower revenue than other regions in Q4."
-     (That's an observation. It describes what happened.
-      An insight says what it means and where to look next.)
-
-  Aim for 3–6 insights. Quality over quantity.
--->
-
-**Insight 1: [Short descriptive headline]**
-[What you found + what it suggests. One short paragraph.]
-
-**Insight 2: [Short descriptive headline]**
-[What you found + what it suggests.]
-
-**Insight 3: [Short descriptive headline]**
-[What you found + what it suggests.]
-
-**Insight 4 (if applicable): [Short descriptive headline]**
-[What you found + what it suggests.]
-
+ 
+## 8. Key Insights
+ 
+**Insight 1: Only 34% of Maji Ndogo's 27.6M people currently have basic water access**
+The national baseline sits at just 34% — meaning roughly 18 million people are relying on unimproved or unsafe sources. This is the clearest indicator that the water crisis is not a localised issue but a national emergency requiring coordinated investment across all five provinces.
+ 
+**Insight 2: Kilimani and Sokoto require the largest budgets ($39M and $40M respectively)**
+Budget distribution is uneven across provinces. Kilimani leads in both population (6.58M) and planned improvement quantity (6,700 upgrades), while Sokoto's rural-heavy geography drives up costs through the 50% rural adjustment. Amanzi, by contrast, requires only $13M — the smallest share — due to lower population and fewer required upgrades.
+ 
+**Insight 3: RO filter installation and well drilling account for the majority of the $147M budget**
+Of the five major improvement types, Install RO filter (7,093 upgrades, ~$40M) and Drill well (3,379 upgrades, ~$38.9M) together represent over half the total spend. These two categories are the primary cost drivers and should be prioritised in procurement and contractor planning.
+ 
+**Insight 4: Saturday queue times are three times longer than any weekday**
+Queue time analysis shows Saturday averages 246 minutes — versus 42–60 minutes on weekdays. This suggests shared tap infrastructure is severely over-capacity during weekends, likely due to combined work and school schedule pressures. Improvements to shared taps should account for peak-day demand, not average daily usage.
+ 
+**Insight 5: Water well contamination is split roughly evenly between chemical and biological sources**
+Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contaminated, and only 28.3% were clean. This means a majority of wells are currently unusable as basic water sources, and their improvement path (RO filter vs. UV+RO vs. repair) depends on contamination type — a nuance the improvement plan already accounts for.
+ 
 ---
-
-## 10. Recommendations
-
-<!--
-  Action-oriented. Addressed to a real audience.
-  Tied explicitly to the insight that supports each one.
-
-  WHAT GOOD LOOKS LIKE:
-  Priority: High
-  Recommendation: "Conduct a fulfilment audit for home goods deliveries
-                   in Region A - specifically investigating whether returns
-                   correlate with a particular warehouse, carrier, or SKU batch."
-  Based On: Insight 1 - return rate anomaly in Region A
-  Owner: Operations / Supply Chain team
-
-  WHAT TO AVOID:
-  ❌ "Improve the return rate."
-     (Not actionable. Doesn't say who, how, or where to start.)
-  ❌ "Further analysis is needed."
-     (This is a placeholder, not a recommendation.)
--->
-
+ 
+## 9. Recommendations
+ 
 | Priority | Recommendation | Based On | Suggested Owner |
 |----------|---------------|----------|-----------------|
-| High | [Specific, actionable step] | [Insight it comes from] | [Who should act] |
-| Medium | [Specific, actionable step] | [Insight it comes from] | [Who should act] |
-| Low | [Exploratory or longer-term suggestion] | [Insight it comes from] | [Who should act] |
-
+| High | Prioritise Kilimani and Sokoto in the first budget release — these provinces represent the largest gap between current access and the 100% target, and have the highest improvement counts | Insight 2 — provincial budget breakdown | President Naledi / National Treasury |
+| High | Begin procurement planning for RO filter installations and well drilling contractors immediately — these two categories account for 54% of total spend and will have the longest lead times | Insight 3 — improvement type cost analysis | Infrastructure / Supply Chain team |
+| Medium | Redesign shared tap scheduling or expand capacity at high-queue sources — Saturday peaks suggest current infrastructure cannot support weekend demand | Insight 4 — Saturday queue time anomaly | Provincial leaders, Local operations teams |
+| Medium | Ensure contamination-type data is used to assign correct improvement type per well — not all contaminated wells require the same fix, and misassignment would waste budget | Insight 5 — well contamination results | Data team / Field survey verification |
+| Low | After initial rollout, track `Basic_water_access %` monthly per province to measure progress against the 100% target and flag provinces that are falling behind | All insights — post-project monitoring | Dalila's data team / BI reporting function |
+ 
 ---
-
-## 11. Assumptions & Limitations
-
-<!--
-  WHAT GOOD LOOKS LIKE:
-  Assumption: "Transaction records were assumed to be complete for all five regions.
-               No validation was performed against source system record counts."
-  Limitation: "The analysis cannot distinguish between returns initiated by
-               the customer vs. returns initiated by the business (e.g., recalls).
-               If business-initiated returns are concentrated in Region A, the
-               return rate finding may reflect a policy decision, not a quality issue."
-
-  WHAT TO AVOID:
-  ❌ Leaving this section blank or writing "None known."
-     Every project has limitations. Documenting them is a sign of
-     analytical maturity - not a confession of failure.
--->
-
+ 
+## 10. Assumptions & Limitations
+ 
 ### Assumptions
-- [What did you treat as true without being able to verify?]
-- [What simplifications did you make for scope or feasibility?]
-- [What domain rules or definitions did you accept as given?]
-
+- Survey data is assumed to be complete and representative for all five provinces — no cross-validation against an external population register was performed.
+- The 50% rural cost uplift applied to all rural improvements is a planning estimate provided by project managers — actual procurement costs may vary.
+- Well contamination classifications (chemical vs. biological) are treated as accurate and final — no re-testing or margin of error has been incorporated.
+- Queue times were averaged across multiple visits per source; this assumes visit timing was representative of typical usage patterns.
 ### Limitations
-- [What gaps exist in the data?]
-- [What analysis was out of scope but could affect interpretation?]
-- [What would a more rigorous version of this project include?]
-- [Are there known biases in the data source or collection method?]
-
-> *The goal here is pre-emptive Q&A. What would a thoughtful skeptic push back on? Document the answer here, before they ask.*
-
+- The dataset is a point-in-time snapshot — it does not capture seasonal variation in water availability, queue length, or contamination levels.
+- The analysis cannot distinguish between wells that are contaminated due to natural geology versus human activity (e.g., agricultural runoff), which may affect remediation strategy.
+- Crime data was included in the dashboard but not deeply analysed in this version — the relationship between crime patterns and water collection behaviour (particularly for women and children) is noted but not quantified.
+- Provincial cost totals assume uniform per-unit costs within each improvement type — economies of scale or local procurement differences are not modelled.
 ---
-
-## 12. Future Enhancements
-
-<!--
-  WHAT GOOD LOOKS LIKE:
-  ✅ "Automate the monthly data pull from the POS export folder using
-      a scheduled Python script, replacing the current manual process."
-  ✅ "Expand the return rate analysis to include carrier-level data,
-      which was unavailable in this dataset but exists in the logistics system."
-
-  WHAT TO AVOID:
-  ❌ "Add a machine learning model."
-     (Vague, and disconnected from the actual findings of this project.)
-  ❌ Listing aspirational features that don't follow logically from the work.
--->
-
-- [ ] [Enhancement 1 - specific and traceable to a real gap in this project]
-- [ ] [Enhancement 2]
-- [ ] [Enhancement 3]
-- [ ] [Enhancement 4]
-
+ 
+## 11. Future Enhancements
+ 
+- [ ] Add a progress-tracking page to the report that updates `Basic_water_access %` as improvements are marked complete in `project_progress`, replacing the static snapshot with a live project tracker
+- [ ] Incorporate seasonal water availability data to adjust queue time classifications — a source with < 30 min average queue may still be inadequate during dry season
+- [ ] Analyse the crime dataset in depth to quantify safety risk by province and time of day, specifically as it affects water collection by women and children
+- [ ] Add a cost vs. impact scatter plot to help leadership identify the highest-ROI improvements (most people served per dollar spent)
+- [ ] Publish the report to Power BI Service and configure row-level security (RLS) so each provincial leader can only see their own province's data
 ---
-
-## 13. Deliverables
-
+ 
+## 12. Deliverables
+ 
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
-| [Name] | [What it contains] | [`/path/to/file`] |
-| [Name] | [What it contains] | [`/path/to/file`] |
-| [Name] | [What it contains] | [`/path/to/file`] |
-
+| Power BI Report (.pbix) | Multi-page interactive dashboard — national overview + 5 provincial pages | [`/reports/maji_ndogo_water_access.pbix`] |
+| Dashboard Screenshots | Visual previews of key report pages | [`/visuals/`] |
+| Data Dictionary | Field-level descriptions for all tables used in the model | [`/docs/data_dictionary.md`] |
+| README | Full project documentation (this file) | [`/README.md`] |
+ 
 ---
-
-## 14. Author
-
+ 
+## 13. Author
+ 
 **[Your Name]**
-[Your role or title - current or target]
-
-- 🔗 [LinkedIn URL]
-- 💼 [Portfolio or GitHub profile URL]
-- 📧 [Email - optional]
-
+Data Analyst
+ 
+- 🔗 [linkedin.com/in/olasile/]
+- 💼 [[GitHub Profile URL](https://github.com/shileyzee22)]
+- 📧 [Email - olasileopeyemi3079@gmail.com]
 ---
-
-*Last updated: [Month YYYY]*
-*If this template helped you, consider starring the repository.*
+ 
+*Last updated: April 2026*
