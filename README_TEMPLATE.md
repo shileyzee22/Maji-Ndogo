@@ -256,8 +256,8 @@ Of wells tested, 40.8% were chemically contaminated, 30.9% biologically contamin
 |-------------|-------------|----------|
 | Power BI Report (.pbix) | Multi-page interactive dashboard — national overview + 5 provincial pages | [`/reports/Maji Ndogo 2.pdf/`] |
 | Dashboard Screenshots | Visual previews of key report pages | [`/visuals/`] |
-| Data Dictionary | Field-level descriptions for all tables used in the model | [`/docs/Part_3 (1).pdf`] |
-| Docs | Descriptions for all instruction given by president | [`/docs/Part_3 (1).pdf`] |
+| Data Dictionary | Field-level descriptions for all tables used in the model | [`/data/raw/Md_water_services_data.xlsx/`] |
+| Docs | Descriptions for all instruction given by president | [`/docs/Part_3 (1).pdf/`] |
 | README | Full project documentation (this file) | [`/README.md`] |
  
 ---
